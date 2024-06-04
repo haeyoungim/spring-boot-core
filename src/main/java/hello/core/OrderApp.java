@@ -19,7 +19,7 @@ public class OrderApp {
 
 //        MemberService memberService = new MemberServiceImpl();
 //        OrderService orderService = new OrderServiceImpl();
-
+//커밋
         ApplicationContext applicationContext = new AnnotationConfigApplicationContext(AppConfig.class);
 
         MemberService memberService = applicationContext.getBean("memberService", MemberService.class);
