@@ -11,4 +11,4 @@
 - ac.getBean() : 빈 이름으로 빈 객체(인스턴스)를 조회
 - Role ROLE_APPLICATION : 직접 등록한 애플리케이션 빈
 - Role ROLE_INFRASTRUCTURE : 스피링이 내부에서 사용하는 빈
-- //커밋테스트
+- //커밋테스트 심어져라
