@@ -52,6 +52,7 @@ public class singletonTest {
     @Test
     @DisplayName("스프링 컨테이너와 싱글톤")
     void springContainer() {
+//        AppConfig appConfig = new AppConfig();
 
         ApplicationContext ac = new AnnotationConfigApplicationContext(AppConfig.class);
         //조회할때마다 같은 객체를 반환하는지 확인

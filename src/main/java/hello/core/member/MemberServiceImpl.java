@@ -26,4 +26,9 @@ public class MemberServiceImpl implements MemberService{
     }
     //구현체 하나만 있을때는 대부분 뒤에 Impl 사용
     //인터페이스 생성 -> 구현체 생성
+
+    //테스트 용도
+    public MemberRepository getMemberRepository() {
+        return memberRepository;
+    }
 }

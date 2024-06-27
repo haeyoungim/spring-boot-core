@@ -21,7 +21,6 @@ public class OrderServiceImpl implements OrderService{
     }
 
 
-
     //주문 생성
     @Override
     public Order createOrder(Long memberId, String itemName, int itemPrice) {
@@ -31,5 +30,10 @@ public class OrderServiceImpl implements OrderService{
        int discountPrice = discountPolicy.discount(memeber, itemPrice);
 
         return new Order(memberId,itemName,itemPrice,discountPrice);
+    }
+
+    //테스트 용도
+    public MemberRepository getMemberRepository() {
+        return memberRepository;
     }
 }
