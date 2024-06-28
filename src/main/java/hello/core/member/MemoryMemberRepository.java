@@ -1,8 +1,11 @@
 package hello.core.member;
 
+import org.springframework.stereotype.Component;
+
 import java.util.HashMap;
 import java.util.Map;
 
+@Component
 public class MemoryMemberRepository implements MemberRepository{
     //구현체
     //DB확정이 안돼서 메모리로 작성

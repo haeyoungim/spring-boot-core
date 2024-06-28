@@ -1,8 +1,11 @@
 package hello.core.member;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+@Component
 public class MemberServiceImpl implements MemberService{
     //구현체
-
 
     //회원을 찾으면 멤버 레파지토리 인터페이스가 필요
     //커맨드+쉬프트+엔터
@@ -11,6 +14,7 @@ public class MemberServiceImpl implements MemberService{
     //추상화에만 의존
     private final MemberRepository memberRepository;
 
+    @Autowired //ac.getBean(MemberRepository.class) 기능을 한다
     public MemberServiceImpl(MemberRepository memberRepository) {
         this.memberRepository = memberRepository;
     }
