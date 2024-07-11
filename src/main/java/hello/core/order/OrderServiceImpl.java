@@ -13,15 +13,34 @@ public class OrderServiceImpl implements OrderService{
     //private final DiscountPolicy discountPolicy = new FixDiscountPolicy();
 
     //final이 되어있으면 기본으로 할당하든 생성자 통해서 할당이 돼야함
-    private final MemberRepository memberRepository;
-    private final DiscountPolicy discountPolicy;
+    private MemberRepository memberRepository;
+    private DiscountPolicy discountPolicy;
+
 
     //생성자
-    @Autowired
     public OrderServiceImpl( MemberRepository memberRepository , DiscountPolicy discountPolicy) {
         this.memberRepository = memberRepository;
         this.discountPolicy = discountPolicy;
     }
+
+
+    @Autowired
+    public void init( MemberRepository memberRepository , DiscountPolicy discountPolicy) {
+        this.memberRepository = memberRepository;
+        this.discountPolicy = discountPolicy;
+    }
+
+
+    @Autowired
+    public void setMemberRepository(MemberRepository memberRepository) {
+        this.memberRepository = memberRepository;
+    }
+
+    @Autowired
+    public void setDiscountPolicy(DiscountPolicy discountPolicy) {
+        this.discountPolicy = discountPolicy;
+    }
+
 
 
     //주문 생성

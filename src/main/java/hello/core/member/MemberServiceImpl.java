@@ -1,5 +1,6 @@
 package hello.core.member;
 
+import hello.core.discount.DiscountPolicy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -12,7 +13,20 @@ public class MemberServiceImpl implements MemberService{
     //private final MemberRepository memberRepository = new MemoryMemberRepository();
 
     //추상화에만 의존
-    private final MemberRepository memberRepository;
+    private MemberRepository memberRepository;
+    private DiscountPolicy discountPolicy;
+
+
+    @Autowired(required = false)
+    public DiscountPolicy setDiscountPolicy(DiscountPolicy discountPolicy) {
+        return this.discountPolicy = discountPolicy;
+    }
+
+    @Autowired
+    public MemberRepository setMemberRepository(MemberRepository memberRepository) {
+        return this.memberRepository = memberRepository;
+    }
+
 
     @Autowired //ac.getBean(MemberRepository.class) 기능을 한다
     public MemberServiceImpl(MemberRepository memberRepository) {

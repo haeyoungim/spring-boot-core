@@ -6,6 +6,7 @@ import hello.core.member.MemberServiceImpl;
 import hello.core.member.MemoryMemberRepository;
 import hello.core.order.OrderService;
 import hello.core.order.OrderServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -34,6 +35,8 @@ public class AppConfig {
 
     //MemberServiceImpl은 밖에서 생성을해서 주입
     //생성자를 통해서 객체가 들어간다 ( 생성자 주입 )
+
+
     @Bean
     public MemberService memberService(){
         System.out.println("Call AppConfig.memberService");
@@ -50,6 +53,7 @@ public class AppConfig {
     public OrderService orderService(){
         System.out.println("Call AppConfig.orderService");
         return new OrderServiceImpl(memberRepository(), discountPolicy());
+//        return null;
     }
 
     @Bean
