@@ -3,10 +3,12 @@ package hello.core.order;
 import hello.core.discount.DiscountPolicy;
 import hello.core.member.Member;
 import hello.core.member.MemberRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 @Component
+@RequiredArgsConstructor
 public class OrderServiceImpl implements OrderService{
 
     private final MemberRepository memberRepository;
@@ -29,11 +31,26 @@ public class OrderServiceImpl implements OrderService{
 //    }
 
 
+
+    //@RequiredArgsConstructor는 final이 붙은 애들를 파라미터로 받는 생성자를 만들어줌. 이 메서드 내용을
     //생성자
-    public OrderServiceImpl( MemberRepository memberRepository , DiscountPolicy discountPolicy) {
+//    public OrderServiceImpl( MemberRepository memberRepository , DiscountPolicy discountPolicy) {
+//        this.memberRepository = memberRepository;
+//        this.discountPolicy = discountPolicy;
+//    }
+
+    //조회 빈이 두개 이상일때
+    //생성자 자동 주입예시 (@Qualifier)
+//    public OrderServiceImpl( MemberRepository memberRepository , @Qualifier("mainDiscountPolicy") DiscountPolicy discountPolicy) {
+//        this.memberRepository = memberRepository;
+//        this.discountPolicy = discountPolicy;
+//    }
+
+        public OrderServiceImpl( MemberRepository memberRepository , DiscountPolicy discountPolicy) {
         this.memberRepository = memberRepository;
         this.discountPolicy = discountPolicy;
     }
+
 
 
     //주문 생성
